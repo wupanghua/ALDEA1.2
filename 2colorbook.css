@@ -1,0 +1,10 @@
+.panel{display:inline-block;width:89px;margin:4px;margin-bottom:12px;}
+.panel:hover{box-shadow:0px 1px 2px gray;}
+.panel-heading{height:37px;}
+.panel-body{height:43px;padding:0px;line-height:5px;}
+.panel-body_Color_Category{height:20px;padding:6px;padding-top:8px;background:#232323;color:white;}
+.panel-body_small{padding-left:6px;}
+#colorshow{position:fixed;top:0;left:0;z-index:99999;width:100%;height:100%;display:none;}
+.colorinfo{position:fixed;bottom:0px;width:100%;background:white;text-align:center;border-top:1px solid lightgray;padding-top:30px;padding-bottom:30px;}
+.colorshow_p{display:inline-block;vertical-align:middle;}
+#colorshow_colorbook{font-size:2em;font-weight:bold;}
