@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+<title>申请记录列表</title>
+<link rel="stylesheet" href="2weui.min.css">
+</head>
+<body ontouchstart>
+	<div style="height:10px"></div>
+	<div style="height:50px;text-align:center">试用阶段，如遇问题请见谅。<font color=red>本申请仅为休息时间内的出入校申请，不可作为请假依据。</font></div>
+	
+	<a href="pre2.html" class="weui-btn weui-btn_primary" id="addqingjia">开始申请</a>
+	<div style="height:30px;text-align:center"><font color=red>如实申请 共同防疫</font></div>
+	
+	<div class="page list" id="abd">
+		<div class="weui-cells__title">
+		未完成申请记录如下：</div>
+		<div class="weui-cells">
+		
+			<div class="weui-cell  weui-cell_example" id='qj_916471'>
+				
+				<div class="weui-cell__hd" onclick="location.href='pre2.2.html'"><img src="appoint.png" style="width: 20px; margin-right: 16px; display: block;"></div>
+				<div class="weui-cell__bd" onclick="location.href='pre2.2.html'">
+					<p><script>
+                        var va2 = localStorage.value2
+                        document.write(va2)
+                    </script><br><script type="text/javascript">
+                        var t = new Date();
+                        var year = t.getFullYear();
+                        var month = t.getMonth() + 1;
+                        var day = t.getDate();
+                        var nowTime = year + "/" + month + "/" + day;
+                        document.write(nowTime);
+                    </script>~<script type="text/javascript">
+                            var t = new Date();
+                            var year = t.getFullYear();
+                            var month = t.getMonth() + 1;
+                            var day = t.getDate();
+                            var nowTime = year + "/" + month + "/" + day;
+                            document.write(nowTime);
+                        </script></p>
+				</div>
+				<div class="weui-cell__ft" onclick="location.href='pre2.2.html'">
+				已同意返校>
+				</div>
+			</div>
+		
+		</div>
+    </div>
+	<br/>
+	<br/>
+	<div class="weui-footer">
+        <p>版权所有 &copy; 辽宁大学</p>
+    </div>
+	
+</body>
+</html>

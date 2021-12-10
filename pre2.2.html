@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+<title>申请详情</title>
+<link rel="stylesheet" href="2weui.min.css">
+</head>
+<body ontouchstart>
+<p id="bear"></p>
+<div id="form">
+  <form id="sub_form">
+    <div class="weui-cells__title"><script>
+        var va3 = localStorage.value3
+        document.write(va3)
+    </script>
+    <script>
+        var va1 = localStorage.value1
+        document.write(va1)
+    </script>
+    <script>
+        var va2 = localStorage.value2
+        document.write(va2)
+    </script></div>
+	<input type="hidden" id="qingjiaid" name="qingjiaid" value="">
+	<input type="hidden" id="cxsjh" name="cxsjh" value="">
+	<input type="hidden" id="fxsjh" name="fxsjh" value="">
+	<input type="hidden" id="mddh" name="mddh" value="沈阳市内">
+	
+	<div class="weui-cells weui-cells_form">
+      <div class="weui-cells__title">目的地</div>
+      <div class="weui-cells">
+        <div class="weui-cell">
+          <div class="weui-cell__bd">
+            <input class="weui-input" name="mdd" type="text" readonly disabled id="mdd" required placeholder="请选择目的地" autocomplete="on" value="沈阳市内">
+          </div>
+          <div class="weui-cell__ft"> <i class="weui-icon-warn"></i> </div>
+        </div>
+      </div>
+    </div>
+	
+
+	<div class="weui-cells weui-cells_form">
+      <div class="weui-cells__title">申请出校日期</div>
+      <div class="weui-cells">
+        <div class="weui-cell">
+          <div class="weui-cell__bd">
+            <input class="weui-input" id="cxsj" type="text" readonly disabled id="cxsj" required placeholder="请选择您的出校时间" autocomplete="on" value="">
+            <script>
+                var t = new Date();
+                var year = t.getFullYear();
+                var month = t.getMonth() + 1;
+                var day = t.getDate();
+                var nowTime = year + "-" + month + "-" + day;
+                eval(document.getElementById("cxsj")).value = nowTime;
+            </script>
+          </div>
+          <div class="weui-cell__ft"> <i class="weui-icon-warn"></i> </div>
+        </div>
+      </div>
+    </div>
+	
+	
+	<div class="weui-cells weui-cells_form">
+      <div class="weui-cells__title">申请返校日期</div>
+      <div class="weui-cells">
+        <div class="weui-cell">
+          <div class="weui-cell__bd">
+		  
+            <input class="weui-input" id="fxsj" type="text" readonly disabled id="fxsj" required placeholder="请选择您的返校时间" autocomplete="on" value="">
+            <script>
+                var t = new Date();
+                var year = t.getFullYear();
+                var month = t.getMonth() + 1;
+                var day = t.getDate();
+                var nowTime = year + "-" + month + "-" + day;
+                eval(document.getElementById("fxsj")).value = nowTime;
+            </script>
+          </div>
+          <div class="weui-cell__ft"> <i class="weui-icon-warn"></i> </div>
+        </div>
+      </div>
+    </div>
+	
+	
+	
+    <div class="weui-cells weui-cells_form">
+      <div class="weui-cells__title">外出原由</div>
+	  <div class="weui-cell ">
+          <div class="weui-cell__bd">
+            <textarea class="weui-textarea" placeholder="请如实填写您的外出原因，外出详细目的地等信息（200字内），并向辅导员提供相关证明材料" id="cxyy" rows="5" autocomplete="on" maxlength="200"></textarea>
+            <script>
+                function random(lower,upper) {return Math.floor(Math.random() * (upper - lower + 1)) + lower;}
+                var a = random(0, 5); var b = random(0,2);
+                var mainreason = new Array("实习","求职","探亲","校外就医","考试","其他");
+                var reason1 = new Array("母亲公司实习","父亲公司实习","老师推荐公司实习");
+                var reason2 = new Array("设计公司求职","音乐公司求职","影视公司求职");
+                var reason3 = new Array("探望父母","探望长辈","探望表亲");
+                var reason4 = new Array("感冒医治","牙科医治","内科医治");
+                var reason5 = new Array("参加校外考试","参加专业考试","参加特长考试");
+                var reason6 = new Array("学院活动购置物品","作业外景拍摄","探望住院同学");
+                if(a == 0){var reason = mainreason[a]+"："+reason1[b]};
+                if(a == 1){var reason = mainreason[a]+"："+reason2[b]};
+                if(a == 2){var reason = mainreason[a]+"："+reason3[b]};
+                if(a == 3){var reason = mainreason[a]+"："+reason4[b]};
+                if(a == 4){var reason = mainreason[a]+"："+reason5[b]};
+                if(a == 5){var reason = mainreason[a]+"："+reason6[b]};
+              document.getElementById("cxyy").innerHTML = reason;
+            </script>
+          </div>
+        </div>
+    </div>
+	
+	
+	<div class="weui-cells weui-cells_form">
+      <div class="weui-cells__title">实际出校时间</div>
+      <div class="weui-cells">
+        <div class="weui-cell">
+          <div class="weui-cell__bd">
+            <input class="weui-input" id="sjcxsj" type="text" readonly id="sjcxsj" required  autocomplete="off" value="">
+            <script>
+                var t = new Date();
+                var year = t.getFullYear();
+                var month = t.getMonth() + 1;
+                var day = t.getDate();
+                var hour = t.getHours() - 3;
+                var nowTime = year + "/" + month + "/" + day + " " + hour + ":11:17";
+                eval(document.getElementById("sjcxsj")).value = nowTime;
+            </script>
+          </div>
+          <div class="weui-cell__ft"> <i class="weui-icon-warn"></i> </div>
+        </div>
+      </div>
+    </div>
+
+
+	<div class="weui-cells weui-cells_form">
+      <div class="weui-cells__title">实际返校时间</div>
+      <div class="weui-cells">
+        <div class="weui-cell">
+          <div class="weui-cell__bd">
+            <input class="weui-input" name="sjfxsj" type="text" readonly id="sjfxsj"   autocomplete="on"  value="">
+            <script>
+                var t = new Date();
+                var year = t.getFullYear();
+                var month = t.getMonth() + 1;
+                var day = t.getDate();
+                var hour = t.getHours();
+                var minute = t.getMinutes() - 1;
+                var second = t.getSeconds();
+                var nowTime = year + "/" + month + "/" + day + " " + hour + ((minute < 10) ? ":0" : ":") + minute + ((second < 10) ? ":0" : ":") + second;
+                eval(document.getElementById("sjfxsj")).value = nowTime;
+            </script>
+          </div>
+          <div class="weui-cell__ft"> <i class="weui-icon-warn"></i> </div>
+        </div>
+      </div>
+    </div>
+	
+	
+	<div class="weui-cells weui-cells_form">
+      <div class="weui-cells__title">出校审批情况</div>
+      <div class="weui-cells">
+        <div class="weui-cell">
+          <div class="weui-cell__bd">
+            <input class="weui-input" name="daoyuan" type="text" required placeholder="请选择您的审批意见" autocomplete="on"  value="同意">
+          </div>
+          <div class="weui-cell__ft"> <i class="weui-icon-warn"></i> </div>
+        </div>
+      </div>
+    </div>
+	
+	
+	<div class="weui-cells weui-cells_form">
+      <div class="weui-cells__title"><font color=red>行程轨迹</font></div>
+	  <div class="weui-cell ">
+          <div class="weui-cell__bd">
+            <textarea id="xcgj" class="weui-textarea" required  rows="5" autocomplete="on" maxlength="500"></textarea>
+            <script>
+                if(a == 0){var destiny = "沈河区布直岛公司"};
+                if(a == 1){var destiny = "和平区臻得公司"};
+                if(a == 2){var destiny = "皇姑区范都花园小区"};
+                if(a == 3){var destiny = "沈阳市第一人民医院"};
+                if(a == 4){var destiny = "浑南区番都大街"};
+                if(a == 5){var destiny = "大东区政府"};
+                var path = "出校：辽大（蒲河）校区至（"+destiny+"），途经（无），出行方式（地铁2号线）；返校：（"+destiny+"）至辽大（蒲河）校区，途经（无），出行方式（地铁2号线）。"
+              document.getElementById("xcgj").innerHTML = path;
+            </script>
+          </div>
+		</div>
+		
+    </div>
+	
+
+	<div class="weui-cells weui-cells_form">
+      <div class="weui-cells__title">返校审批情况</div>
+      <div class="weui-cells">
+        <div class="weui-cell">
+          <div class="weui-cell__bd">
+            <input class="weui-input" name="fxdy" type="text" required placeholder="请选择您的审批意见" autocomplete="on"  value="同意">
+          </div>
+          <div class="weui-cell__ft"> <i class="weui-icon-warn"></i> </div>
+        </div>
+      </div>
+    </div>
+	
+	
+	
+	
+	<br/>
+	<p  style="text-align:center">
+	
+		<a href="javascript:void(0);" id="cxtxz" class="weui-btn weui-btn_primary">生成出校通行证</a>
+		<a href="in.html" id="fxtxz" class="weui-btn weui-btn_primary">生成返校通行证</a>
+        <script>
+          document.getElementById("cxtxz").onclick = function () {
+            alert("已出校，通行证只能生成一次！如需出校，请重新提交出入校申请，如果无法提交申请，请按提示操作！")}
+        </script>
+		<a href="pre2.1.html" class="weui-btn  weui-btn_primary" style="margin-top: 0.9em;">返回申请列表</a>
+	</p>
+	
+  </form>
+</div>
+<br/>
+<div class="weui-footer">
+  <p class="weui-footer__text">版权所有 &copy; 辽宁大学</p>
+</div>
+</body>
+</html>

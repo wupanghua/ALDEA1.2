@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>LoveLNU2.6</title>
+    <meta charSet="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <link rel="stylesheet" href="1styles.min.css"/>
+    <link href="2bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div style="padding-top:21vh;"></div>    
+  <div class="base">       
+      <main id="main-content" class="base__grid">
+        <h3 style="font-family:'Courier New', Courier, monospace; text-align: center; font-weight:600; " >Sign in</h3>
+        <h6 style="font-family:'Courier New', Courier, monospace; text-align: center; margin-top: 11px;">Enter your ID & name & college in these<br/>blank fields to continue using.</h6>
+        <img src="rightarrow.png" style="position: absolute; width: 10px; left: 3vw; margin-top: 160px;">
+        <h6 style="font-family:'Courier New', Courier, monospace; position: absolute; left: 7vw; width:30px; margin-top: 163px; font-weight:600;" id="btnmale">MALE</h6>
+        <img src="leftarrow.png" style="position: absolute; width: 10px; right: 3vw; margin-top: 160px;">
+        <h6 style="font-family:'Courier New', Courier, monospace; position: absolute; right: 10.7vw; width:30px; margin-top: 163px; font-weight:600;" id="btnfemale">FEMALE</h6>
+          <script>
+            function random(lower,upper) {return Math.floor(Math.random() * (upper - lower + 1)) + lower;}
+            document.getElementById("btnmale").onclick = function () {
+              document.getElementById("btnmale").style = "font-family:'Courier New', Courier, monospace; position: absolute; left: 7vw; width:30px; margin-top: 163px; font-weight:600; text-decoration: underline";
+              var i = random(0, 45); var j = random(0,3); var k = random(0,11); var l = random(0,53);
+              var numb1 = new Array("18","19","20","21") ;
+              var numb2 = new Array("01","02","03","04","05","06","08","15","19","43","48","66");
+              var numb3 = new Array("01102","01103","01104","01105","01201","01202","01203","01204","01205","02102","02103","02104","02105","02201","02202","02203","02204","02205","03102","03103","03104","03105","03201","03202","03203","03204","03205","04102","04103","04104","04105","04201","04202","04203","04204","04205","05102","05103","05104","05105","05201","05202","05203","05204","05205","06102","06103","06104","06105","06201","06202","06203","06204","06205");
+              var college = new Array("文学院","历史学院","哲学与公共管理学院","法学院","经济学院","工商管理学院","外国语学院","广播影视学院","汉语国际教育学院","国际关系学院","艺术学院","新华国际商学院");
+              var mensnameArr = new Array("夏落兴","甘风力","吴军卓","许欣英","穆中观","武邦致","谢雄民","云凌可","郎朝","余梦茂","凌瑛昼","吕映冉","涂翰毅","魏争博","周放","凌松帆","文驹治","柯独","李锐汉","严锋滕","李恩妙","元骞振","杨舟察","连解","黎舒","张斗焕","卢帆新","华章滕","林显","于泰哲","盛枫瑾","侯善稚","薛敬文","文子隐","俞贡延","韦烽凌","关戚栾","袁修纯","柯河舍","郭俊立","岑希伙","樊辰","夏思徽","陶旭笙","张准辰","邢编");
+              localStorage.value1= numb1[j]+numb2[k]+numb3[l];
+              localStorage.value2= mensnameArr[i];
+              localStorage.value3= college[k];
+              location.href="changeColor3.html"};
+            document.getElementById("btnfemale").onclick = function () {
+              document.getElementById("btnfemale").style = "font-family:'Courier New', Courier, monospace; position: absolute; right: 10.3vw; width:30px; margin-top: 163px; font-weight:600; text-decoration: underline";
+              var m = random(0, 40); var n = random(0,3);  var o = random(0,11); var p = random(0,5); var q = random(0,47); 
+              var numb4 = new Array("18","19","20","21") ;
+              var numb5 = new Array("01","02","03","04","05","06","08","15","19","43","48","66");
+              var numb6 = new Array("01","02","03","04","05","06");
+              var numb7 = new Array("122","123","124","125","110","111","112","113","114","115","116","117","118","119","120","121","222","223","224","225","210","211","212","213","214","215","216","217","218","219","220","221","322","323","324","325","310","311","312","313","314","315","316","317","318","319","320","321")
+              var college = new Array("文学院","历史学院","哲学与公共管理学院","法学院","经济学院","工商管理学院","外国语学院","广播影视学院","汉语国际教育学院","国际关系学院","艺术学院","新华国际商学院");
+              var womensnameArr = new Array("张媛媛","唐滢珠","郑雅","江钰源","程菲","王湉湉","范晔","何可欣","张楠","李娅","周卓如","杨伊琳","庞盼盼","李珊珊","范晔","肖莎","邓琳琳","林莉","何宁","艾梦萌","张楚格","巩贺","魏佳庆","王欣如","罗丹","付静","李璇","张艳茹","毕妍","韩文霞","张彤","许美爽","曲飞飞","刘亚莉","潘丽娜","李洁","浦玮","翁新芝","韩端","刘卅","张颖");
+              localStorage.value1= numb4[n]+numb5[o]+numb6[p]+numb7[q];
+              localStorage.value2= womensnameArr[m];
+              localStorage.value3= college[o];
+              location.href="changeColor3.html"}
+          </script>
+        <div class="utility-card" style="margin-top: 13px;">
+            <div class="text-field">
+              <div class="text-field__styled-wrapper text-field__styled-wrapper--without-link">
+                <input class="text-field__input" id="u1_input" style="font-family:Microsoft JhengHei Light, PMingLiu;" value="" type="text" placeholder="学号" emptyTips="请输入学号"/>
+              </div><br/>
+              <div class="text-field__styled-wrapper text-field__styled-wrapper--without-link">
+                <input class="text-field__input" id="u2_input" style="font-family:Microsoft JhengHei Light, PMingLiu;" value="" type="text" placeholder="姓名" emptyTips="请输入姓名"/></div><br/>
+              <div class="text-field__styled-wrapper text-field__styled-wrapper--without-link">
+                <input class="text-field__input" id="u3_input" style="font-family:Microsoft JhengHei Light, PMingLiu;" value="" type="text" placeholder="学院" emptyTips="请输入学院"/></div>
+            </div>
+            <button type="submit" id="u5_input" class="button--utility button" style="margin-top: 11px;">
+                <span style="display: inline-block; font-family:'Courier New', Courier, monospace; font-size: large; font-weight: bold; " class="button__label">PLACEBO</span></button>
+                <h6 style="font-family:'Courier New', Courier, monospace; text-align: left; margin-top: 21px;" ><a href="javascript:remember()" style="color: black;">Need the Application page? Click here.</a></h6></div></main><br/>
+                <script type="text/javascript">
+                  document.getElementById("u5_input").onclick=function(){
+                        if (document.getElementById('rememberme').checked) {
+                          localStorage.setItem('numberr', numberr.value);
+                          localStorage.setItem('namee', namee.value);
+                          localStorage.setItem('collegee', collegee.value);}
+                        else {
+                          localStorage.setItem('numberr', '');
+                          localStorage.setItem('namee', '');
+                          localStorage.setItem('collegee', '');}
+                      localStorage.value1=document.getElementById("u1_input").value;
+                      localStorage.value2=document.getElementById("u2_input").value;
+                      localStorage.value3=document.getElementById("u3_input").value;
+                      location.href="changeColor.html"}</script>
+                <script type="text/javascript">
+                  function remember(){
+                    if (document.getElementById('rememberme').checked) {
+                          localStorage.setItem('numberr', numberr.value);
+                          localStorage.setItem('namee', namee.value);
+                          localStorage.setItem('collegee', collegee.value);}
+                        else {
+                          localStorage.setItem('numberr', '');
+                          localStorage.setItem('namee', '');
+                          localStorage.setItem('collegee', '');}
+                      localStorage.value1=document.getElementById("u1_input").value;
+                      localStorage.value2=document.getElementById("u2_input").value;
+                      localStorage.value3=document.getElementById("u3_input").value;
+                      location.href="changeColor3.html"}
+                </script>
+            <footer class="footer" style="margin-top: 3.7rem;"><div class="footer__container">
+                <div class="footer__grid"><nav aria-label="Notices" class="footer__nav-list"><ul>
+                  <li class="footer__nav-list-item">
+                    <a href="https://github.com/huawanle/LoveLNU2.6" rel="nofollow noopener noreferrer" style="font-family:'Courier New', Courier, monospace; font-weight: bold;" target="_blank">View Code</a></li>
+                  <li class="footer__nav-list-item">
+                    <a href="https://b23.tv/ZzcaTp" rel="nofollow noopener noreferrer" style="font-family:'Courier New', Courier, monospace; font-weight: bold;" target="_blank">Tutorial</a></li>
+                  <li class="footer__nav-list-item">
+                    <a href="https://github.com/huawanle/LoveLNU2.6/edit/main/changeColor.html" rel="nofollow noopener noreferrer" style="font-family:'Courier New', Courier, monospace; font-weight: bold;" target="_blank">Programmer / Color Setting</a></li>
+                  <li class="footer__nav-list-item">
+                    <a href="whoareu.mp4" rel="noopener noreferrer" style="font-family:'Courier New', Courier, monospace; font-weight: bold;" target="_blank">Привет Hello 你好</a></li>
+                  <li class="footer__ot-btn">
+                    <button id="ot-sdk-btn" class="ot-sdk-show-settings ot-sdk-btn--visible" style="font-family:'Courier New', Courier, monospace; margin: 5px; padding: 4px; font-weight: bold;">&nbsp;Freedom & Peace & Love&nbsp;</button></li></ul></nav>
+                    <script type="text/javascript">
+                      document.getElementById("ot-sdk-btn").onclick=function(){
+                        window.location.href="https://b23.tv/ep291361"}
+                    </script>
+                  <p style="text-align: center"><img src="logo2.png" width=83px id="music"/></p><br/>
+                    <script>
+                      document.getElementById("music").onclick = function () {location.href="Y'All Doomed - Blur.mp3"}
+                    </script>
+                  <p class="footer__legalese" style="font-family:'Courier New', Courier, monospace; margin-top:11px;">© 2021 <a href="rick.mp4"><u>Valerii</u></a>. Inspired by:This Page - <a href="https://id.condenast.com/interaction/Km8DoLgLPnyoUsax2vTTl/email?xid=c2e0aa1e-43fc-4325-9004-b86350c42681&scope=openid%20offline_access&state=%7B%22redirectURL%22%3A%22%2F%3Fus_site%3Dy%22%7D&prompt=select_account%20consent&source=VERSO_NAVIGATION&client_id=condenast.identity.fbc9096dc61f9b79c5ac4c85998da075&redirect_uri=https%3A%2F%2Fwww.vogue.com%2Fauth%2Fcomplete&response_type=code" rel="nofollow noopener noreferrer" target="_blank"><u>Vogue</u></a>&nbsp;
+                    <a href="https://www.zara.com/sg/" rel="nofollow noopener noreferrer" target="_blank"><u>Zara</u></a>.&nbsp;Color Selection Page - <a href="https://www.colortell.com/colorbook/?callbook=a8" rel="nofollow noopener noreferrer" target="_blank"><u>色彩管理网</u></a></p></div></div></footer>
+  </div>
+  <nav class="navbar-fixed-top" style="float:top; height:21vh; color: transparent;">
+    <span style="float:left; margin-left:3.7vw;">
+      <input type="checkbox" id="rememberme" checked="checked">
+            <label for="rememberme"></label>
+                <style>#rememberme +label{height:37px; cursor:pointer;}
+                  #rememberme +label::before{display:block; content:"\2661"; position: absolute; text-align: right; margin-top:-0.3vh; font-size:23px; font-weight: 600; background:transparent; color:maroon;}
+                  #rememberme:checked +label::before{display:block; content:"\2661"; position: absolute; text-align: right; margin-top:-0.3vh; font-size:23px; font-weight: 600; background:transparent; color:black;}
+                  #rememberme{display:none;}</style>
+                <script type="text/javascript">
+                  var numberr = document.getElementById('u1_input'),
+                      namee = document.getElementById('u2_input'),
+                      collegee = document.getElementById('u3_input'),
+                      localNumberr = localStorage.getItem('numberr') || ''; 
+                      localNamee = localStorage.getItem('namee') || ''; 
+                      localCollegee = localStorage.getItem('collegee') || ''; 
+                      numberr.value = localNumberr;
+                      namee.value = localNamee;
+                      collegee.value = localCollegee;
+                </script>
+      <img src="logo.png"  style="margin-top: 3vh; margin-left: 4.1vh; height:15.3vh" id="music2"/>
+        <script>
+          document.getElementById("music2").onclick = function () {location.href="Love song - The Cure.mp3"}
+        </script></span> 
+    <span style="float:right; margin-right:5.6vw;">
+        <h5 style="margin-top: 3.5vh; font-family:'Courier New', Courier, monospace; font-weight:600; margin-right: 0; color: black;"><a href="https://wupanghua.github.io/INFOS/" style="color: black" rel="nofollow noopener noreferrer" target="_blank">INFOS</a></h5>
+        <h5 style="margin-top: 7vh; font-family:'Courier New', Courier, monospace; font-weight:600; margin-right: 0; color: black;"><a href="https://wupanghua.github.io/UDHIS/" style="color: black" rel="nofollow noopener noreferrer" target="_blank"><u>UDHIS</u></a></h5>
+  </span>
+</nav></body></html>

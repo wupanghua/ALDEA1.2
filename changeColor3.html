@@ -1,0 +1,2405 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LoveLNU2.6 | Colors</title>
+    <link href="2bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="2iconfont.css">
+    <style>
+        html{margin:0px;padding:0px;}
+        *{margin:0px;padding:0px;}
+        a{color:#5e5e5e;text-decoration:none}
+    </style>
+</head>
+    <link href="2colorbook.css" rel="stylesheet">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6 col-xs-12 col-sm-offset-3 text-center ">
+                <h2 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-weight: 600; margin-top: 23px;">Color Selection</h2>
+                <p style="margin-top:11px;">
+                    <small style="color: grey;" class="text-info">点"学号"旁人像纠正颜色; 点"姓名"旁人像切换出/入校.</small>
+                </p>
+                <div class="form-group">
+                    <select name="" class="form-control" id="callbook" style="margin-top: 17px;" onchange="window.location=this.value;" >
+                        <optgroup label="色彩系统">
+                            <option value="changeColor.html" > &nbsp;# W3C十六色 IE4+预命名颜色</option>
+                            <option value="http://www.lnu.edu.cn/" > &nbsp;# 216安全色色盘（不推荐）</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div>
+                    <input type="text" id="colornamee" style="width:82%; text-align: center;" placeholder="输入颜色编号进行检索（如：73）">
+                    <ul id="colorss" style="padding-top:7px; width:92%; margin:0 0% 0 4%;"></ul>
+                </div>
+                <style>
+                    *{list-style: none; padding:0; margin:0;}
+                    li{height:43px; padding:8.5px; border:1px transparent; font-size: 17px; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
+                </style>
+                <script>
+                    var clnm = document.getElementById('colornamee');
+                    var clss = document.getElementById('colorss');
+                    var fuckers = ["0001","0002","0003","0004","0005","0006","0007","0008","0009","0010",
+                                    "0011","0012","0013","0014","0015","0016","0017","0018","0019","0020",
+                                    "0021","0022","0023","0024","0025","0026","0027","0028","0029","0030",
+                                    "0031","0032","0033","0034","0035","0036","0037","0038","0039","0040",
+                                    "0041","0042","0043","0044","0045","0046","0047","0048","0049","0050",
+                                    "0051","0052","0053","0054","0055","0056","0057","0058","0059","0060",
+                                    "0061","0062","0063","0064","0065","0066","0067","0068","0069","0070",
+                                    "0071","0072","0073","0074","0075","0076","0077","0078","0079","0080",
+                                    "0081","0082","0083","0084","0085","0086","0087","0088","0089","0090",
+                                    "0091","0092","0093","0094","0095","0096","0097","0098","0099","0100",
+                                    "0101","0102","0103","0104","0105","0106","0107","0108","0109","0110",
+                                    "0111","0112","0113","0114","0115","0116","0117","0118","0119","0120",
+                                    "0121","0122","0123","0124","0125","0126","0127","0128","0129","0130",
+                                    "0131","0132","0133","0134","0135","0136","0137","0138","0139","0140",
+                                    "0141","0142","0143","0144","0145","0146","0147","0148","0149","0150",
+                                    "0151","0152","0153","0154","0155"];
+                    clnm.addEventListener('keyup', function(){
+                        var keyWord = clnm.value;
+                        var fuckerList = searchByRegExp(keyWord, fuckers);
+                        renderfuckers(fuckerList);
+                        });
+                    $('#txt').on('input')
+                    function renderfuckers(list){
+                        clss.innerHTML = '';
+                        var len = list.length;
+                        var item = null;
+                        for(var i=0; i<len; i++){
+                            item = document.createElement('li');
+                            item.innerHTML = list[i];
+                            clss.appendChild(item);
+                            if(item.innerHTML == "0001"){item.style.backgroundColor = "maroon"; 
+                                                        item.onclick = function(){localStorage.color = "maroon";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0002"){item.style.backgroundColor = "red"; 
+                                                        item.onclick = function(){localStorage.color = "red";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0003"){item.style.backgroundColor = "olive"; 
+                                                        item.onclick = function(){localStorage.color = "olive";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0004"){item.style.backgroundColor = "yellow"; 
+                                                        item.onclick = function(){localStorage.color = "yellow";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0005"){item.style.backgroundColor = "green"; 
+                                                        item.onclick = function(){localStorage.color = "green";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0006"){item.style.backgroundColor = "lime"; 
+                                                        item.onclick = function(){localStorage.color = "lime";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0007"){item.style.backgroundColor = "teal"; 
+                                                        item.onclick = function(){localStorage.color = "teal";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0008"){item.style.backgroundColor = "aqua"; 
+                                                        item.onclick = function(){localStorage.color = "aqua";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0009"){item.style.backgroundColor = "navy"; 
+                                                        item.onclick = function(){localStorage.color = "navy";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0010"){item.style.backgroundColor = "blue"; 
+                                                        item.onclick = function(){localStorage.color = "blue";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0011"){item.style.backgroundColor = "purple"; 
+                                                        item.onclick = function(){localStorage.color = "purple";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0012"){item.style.backgroundColor = "fuchsia"; 
+                                                        item.onclick = function(){localStorage.color = "fuchsia";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0013"){item.style.backgroundColor = "white"; 
+                                                        item.onclick = function(){localStorage.color = "white";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0014"){item.style.backgroundColor = "silver"; 
+                                                        item.onclick = function(){localStorage.color = "silver";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0015"){item.style.backgroundColor = "grey"; 
+                                                        item.onclick = function(){localStorage.color = "grey";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0016"){item.style.backgroundColor = "black"; 
+                                                        item.onclick = function(){localStorage.color = "black";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0017"){item.style.backgroundColor = "pink"; 
+                                                        item.onclick = function(){localStorage.color = "pink";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0018"){item.style.backgroundColor = "crimson"; 
+                                                                 item.onclick = function(){localStorage.color = "crimson";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0019"){item.style.backgroundColor = "lavenderblush";
+                                                        item.onclick = function(){localStorage.color = "lavenderblush";
+                                                                            location.href="index.html";}};
+                            if(item.innerHTML == "0020"){item.style.backgroundColor = "palevioletred"; 
+                                                                 item.onclick = function(){localStorage.color = "palevioletred"; 
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0021"){item.style.backgroundColor = "hotpink"; 
+                                                                 item.onclick = function(){localStorage.color = "hotpink"; 
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0022"){item.style.backgroundColor = "deeppink"; 
+                                                                 item.onclick = function(){localStorage.color = "deeppink"; 
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0023"){item.style.backgroundColor = "mediumvioletred";  
+                                                                 item.onclick = function(){localStorage.color = "mediumvioletred";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0024"){item.style.backgroundColor = "orchid";  
+                                                                 item.onclick = function(){localStorage.color = "orchid";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0025"){item.style.backgroundColor = "thistle";  
+                                                                 item.onclick = function(){localStorage.color = "thistle";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0026"){item.style.backgroundColor = "plum";  
+                                                                 item.onclick = function(){localStorage.color = "plum";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0027"){item.style.backgroundColor = "violet"; 
+                                                                 item.onclick = function(){localStorage.color = "violet";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0028"){item.style.backgroundColor = "magenta";  
+                                                                 item.onclick = function(){localStorage.color = "magenta";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0029"){item.style.backgroundColor = "fuchsia"; 
+                                                        item.onclick = function(){localStorage.color = "fuchsia";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0030"){item.style.backgroundColor = "darkmagenta"; 
+                                                                 item.onclick = function(){localStorage.color = "darkmagenta"; 
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0031"){item.style.backgroundColor = "purple"; 
+                                                        item.onclick = function(){localStorage.color = "purple";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0032"){item.style.backgroundColor = "mediumorchid";  
+                                                                 item.onclick = function(){localStorage.color = "mediumorchid";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0033"){item.style.backgroundColor = "darkviolet";  
+                                                                 item.onclick = function(){localStorage.color = "darkviolet";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0034"){item.style.backgroundColor = "darkorchid";  
+                                                                 item.onclick = function(){localStorage.color = "darkorchid";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0035"){item.style.backgroundColor = "indigo";  
+                                                                 item.onclick = function(){localStorage.color = "indigo";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0036"){item.style.backgroundColor = "blueviolet";  
+                                                                 item.onclick = function(){localStorage.color = "blueviolet";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0037"){item.style.backgroundColor = "mediumpurple";  
+                                                                 item.onclick = function(){localStorage.color = "mediumpurple";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0038"){item.style.backgroundColor = "mediumslateblue";  
+                                                                 item.onclick = function(){localStorage.color = "mediumslateblue";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0039"){item.style.backgroundColor = "slateblue";   
+                                                                 item.onclick = function(){localStorage.color = "slateblue";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0040"){item.style.backgroundColor = "darkslateblue";   
+                                                                 item.onclick = function(){localStorage.color = "darkslateblue";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0041"){item.style.backgroundColor = "lavender";   
+                                                                 item.onclick = function(){localStorage.color = "lavender";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0042"){item.style.backgroundColor = "ghostwhite";   
+                                                                 item.onclick = function(){localStorage.color = "ghostwhite";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0043"){item.style.backgroundColor = "blue"; 
+                                                        item.onclick = function(){localStorage.color = "blue";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0044"){item.style.backgroundColor = "mediumblue";   
+                                                                 item.onclick = function(){localStorage.color = "mediumblue";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0045"){item.style.backgroundColor = "midnightblue";   
+                                                                 item.onclick = function(){localStorage.color = "midnightblue";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0046"){item.style.backgroundColor = "darkblue";   
+                                                                 item.onclick = function(){localStorage.color = "darkblue";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0047"){item.style.backgroundColor = "navy"; 
+                                                        item.onclick = function(){localStorage.color = "navy";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0048"){item.style.backgroundColor = "royalblue";   
+                                                                 item.onclick = function(){localStorage.color = "royalblue";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0049"){item.style.backgroundColor = "cornflowerblue";   
+                                                                 item.onclick = function(){localStorage.color = "cornflowerblue";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0050"){item.style.backgroundColor = "lightsteelblue";   
+                                                                 item.onclick = function(){localStorage.color = "lightsteelblue";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0051"){item.style.backgroundColor = "lightslategrey";   
+                                                                 item.onclick = function(){localStorage.color = "lightslategrey";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0052"){item.style.backgroundColor = "slategrey";   
+                                                                 item.onclick = function(){localStorage.color = "slategrey";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0053"){item.style.backgroundColor = "dodgerblue";   
+                                                                 item.onclick = function(){localStorage.color = "dodgerblue";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0054"){item.style.backgroundColor = "aliceblue";   
+                                                                 item.onclick = function(){localStorage.color = "aliceblue";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0055"){item.style.backgroundColor = "steelblue";   
+                                                                 item.onclick = function(){localStorage.color = "steelblue";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0056"){item.style.backgroundColor = "lightskyblue";   
+                                                                 item.onclick = function(){localStorage.color = "lightskyblue";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0057"){item.style.backgroundColor = "skyblue";   
+                                                                 item.onclick = function(){localStorage.color = "skyblue";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0058"){item.style.backgroundColor = "deepskyblue";    
+                                                                 item.onclick = function(){localStorage.color = "deepskyblue";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0059"){item.style.backgroundColor = "lightblue";    
+                                                                 item.onclick = function(){localStorage.color = "lightblue";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0060"){item.style.backgroundColor = "powderblue";    
+                                                                 item.onclick = function(){localStorage.color = "powderblue";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0061"){item.style.backgroundColor = "cadetblue";    
+                                                                 item.onclick = function(){localStorage.color = "cadetblue";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0062"){item.style.backgroundColor = "azure";    
+                                                                 item.onclick = function(){localStorage.color = "azure";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0063"){item.style.backgroundColor = "lightcyan";    
+                                                                 item.onclick = function(){localStorage.color = "lightcyan";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0064"){item.style.backgroundColor = "paleturquoise";    
+                                                                 item.onclick = function(){localStorage.color = "paleturquoise";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0065"){item.style.backgroundColor = "cyan";    
+                                                                 item.onclick = function(){localStorage.color = "cyan";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0066"){item.style.backgroundColor = "aqua"; 
+                                                        item.onclick = function(){localStorage.color = "aqua";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0067"){item.style.backgroundColor = "darkturquoise";    
+                                                                 item.onclick = function(){localStorage.color = "darkturquoise";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0068"){item.style.backgroundColor = "darkslategray";    
+                                                                 item.onclick = function(){localStorage.color = "darkslategray";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0069"){item.style.backgroundColor = "darkcyan";
+                                                                 item.onclick = function(){localStorage.color = "darkcyan";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0070"){item.style.backgroundColor = "teal"; 
+                                                        item.onclick = function(){localStorage.color = "teal";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0071"){item.style.backgroundColor = "mediumturquoise"; 
+                                                                 item.onclick = function(){localStorage.color = "mediumturquoise";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0072"){item.style.backgroundColor = "lightseagreen"; 
+                                                                 item.onclick = function(){localStorage.color = "lightseagreen";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0073"){item.style.backgroundColor = "turquoise"; 
+                                                                 item.onclick = function(){localStorage.color = "turquoise";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0074"){item.style.backgroundColor = "aquamarine"; 
+                                                                 item.onclick = function(){localStorage.color = "aquamarine";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0075"){item.style.backgroundColor = "mediumaquamarine"; 
+                                                                 item.onclick = function(){localStorage.color = "mediumaquamarine";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0076"){item.style.backgroundColor = "mediumspringgreen"; 
+                                                                 item.onclick = function(){localStorage.color = "mediumspringgreen";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0077"){item.style.backgroundColor = "mintcream"; 
+                                                                 item.onclick = function(){localStorage.color = "mintcream";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0078"){item.style.backgroundColor = "springgreen"; 
+                                                                 item.onclick = function(){localStorage.color = "springgreen";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0079"){item.style.backgroundColor = "mediumseagreen"; 
+                                                                 item.onclick = function(){localStorage.color = "mediumseagreen";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0080"){item.style.backgroundColor = "seagreen"; 
+                                                                 item.onclick = function(){localStorage.color = "seagreen";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0081"){item.style.backgroundColor = "honeydew"; 
+                                                                 item.onclick = function(){localStorage.color = "honeydew";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0082"){item.style.backgroundColor = "lightgreen"; 
+                                                                 item.onclick = function(){localStorage.color = "lightgreen";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0083"){item.style.backgroundColor = "palegreen"; 
+                                                                 item.onclick = function(){localStorage.color = "palegreen";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0084"){item.style.backgroundColor = "darkseagreen"; 
+                                                                 item.onclick = function(){localStorage.color = "darkseagreen";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0085"){item.style.backgroundColor = "limegreen"; 
+                                                                 item.onclick = function(){localStorage.color = "limegreen";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0086"){item.style.backgroundColor = "lime"; 
+                                                        item.onclick = function(){localStorage.color = "lime";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0087"){item.style.backgroundColor = "forestgreen"; 
+                                                                 item.onclick = function(){localStorage.color = "forestgreen";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0088"){item.style.backgroundColor = "green"; 
+                                                        item.onclick = function(){localStorage.color = "green";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0089"){item.style.backgroundColor = "darkgreen"; 
+                                                                 item.onclick = function(){localStorage.color = "darkgreen";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0090"){item.style.backgroundColor = "chartreuse"; 
+                                                                 item.onclick = function(){localStorage.color = "chartreuse";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0091"){item.style.backgroundColor = "lawngreen"; 
+                                                                 item.onclick = function(){localStorage.color = "lawngreen";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0092"){item.style.backgroundColor = "greenyellow"; 
+                                                                 item.onclick = function(){localStorage.color = "greenyellow";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0093"){item.style.backgroundColor = "darkolivegreen"; 
+                                                                 item.onclick = function(){localStorage.color = "darkolivegreen";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0094"){item.style.backgroundColor = "yellowgreen"; 
+                                                                 item.onclick = function(){localStorage.color = "yellowgreen";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0095"){item.style.backgroundColor = "olivedrab"; 
+                                                                 item.onclick = function(){localStorage.color = "olivedrab";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0096"){item.style.backgroundColor = "beige"; 
+                                                                 item.onclick = function(){localStorage.color = "beige";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0097"){item.style.backgroundColor = "lightgoldenrodyellow";
+                                                                 item.onclick = function(){localStorage.color = "lightgoldenrodyellow"; 
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0098"){item.style.backgroundColor = "ivory"; 
+                                                                 item.onclick = function(){localStorage.color = "ivory";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0099"){item.style.backgroundColor = "lightyellow"; 
+                                                                 item.onclick = function(){localStorage.color = "lightyellow";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0100"){item.style.backgroundColor = "yellow"; 
+                                                        item.onclick = function(){localStorage.color = "yellow";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0101"){item.style.backgroundColor = "olive"; 
+                                                        item.onclick = function(){localStorage.color = "olive";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0102"){item.style.backgroundColor = "darkkhaki"; 
+                                                                 item.onclick = function(){localStorage.color = "darkkhaki";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0103"){item.style.backgroundColor = "lemonchiffon"; 
+                                                                 item.onclick = function(){localStorage.color = "lemonchiffon";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0104"){item.style.backgroundColor = "palegoldenrod"; 
+                                                                 item.onclick = function(){localStorage.color = "palegoldenrod";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0105"){item.style.backgroundColor = "khaki"; 
+                                                                 item.onclick = function(){localStorage.color = "khaki";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0106"){item.style.backgroundColor = "gold"; 
+                                                                 item.onclick = function(){localStorage.color = "gold";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0107"){item.style.backgroundColor = "cornsilk";
+                                                                 item.onclick = function(){localStorage.color = "cornsilk"; 
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0108"){item.style.backgroundColor = "goldenrod"; 
+                                                                 item.onclick = function(){localStorage.color = "goldenrod";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0109"){item.style.backgroundColor = "darkgoldenrod"; 
+                                                                 item.onclick = function(){localStorage.color = "darkgoldenrod";
+                                                       location.href="index.html";}};
+                            if(item.innerHTML == "0110"){item.style.backgroundColor = "floralwhite"; 
+                                                                 item.onclick = function(){localStorage.color = "floralwhite";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0111"){item.style.backgroundColor = "oldlace"; 
+                                                                 item.onclick = function(){localStorage.color = "oldlace";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0112"){item.style.backgroundColor = "wheat"; 
+                                                                 item.onclick = function(){localStorage.color = "wheat";
+                                                       location.href="index.html";}};
+                            if(item.innerHTML == "0113"){item.style.backgroundColor = "moccasin"; 
+                                                                 item.onclick = function(){localStorage.color = "moccasin";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0114"){item.style.backgroundColor = "orange"; 
+                                                                 item.onclick = function(){localStorage.color = "orange";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0115"){item.style.backgroundColor = "papayawhip"; 
+                                                                 item.onclick = function(){localStorage.color = "papayawhip";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0116"){item.style.backgroundColor = "blanchedalmond"; 
+                                                                 item.onclick = function(){localStorage.color = "blanchedalmond";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0117"){item.style.backgroundColor = "navajowhite"; 
+                                                                 item.onclick = function(){localStorage.color = "navajowhite";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0118"){item.style.backgroundColor = "antiquewhite"; 
+                                                                 item.onclick = function(){localStorage.color = "antiquewhite";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0119"){item.style.backgroundColor = "tan"; 
+                                                                 item.onclick = function(){localStorage.color = "tan";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0120"){item.style.backgroundColor = "burlywood"; 
+                                                                 item.onclick = function(){localStorage.color = "burlywood";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0121"){item.style.backgroundColor = "bisque"; 
+                                                                 item.onclick = function(){localStorage.color = "bisque";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0122"){item.style.backgroundColor = "darkorange"; 
+                                                                 item.onclick = function(){localStorage.color = "darkorange";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0123"){item.style.backgroundColor = "linen"; 
+                                                                 item.onclick = function(){localStorage.color = "linen";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0124"){item.style.backgroundColor = "peru"; 
+                                                                 item.onclick = function(){localStorage.color = "peru";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0125"){item.style.backgroundColor = "peachpuff"; 
+                                                                 item.onclick = function(){localStorage.color = "peachpuff";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0126"){item.style.backgroundColor = "sandybrown"; 
+                                                                 item.onclick = function(){localStorage.color = "sandybrown";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0127"){item.style.backgroundColor = "chocolate"; 
+                                                                 item.onclick = function(){localStorage.color = "chocolate";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0128"){item.style.backgroundColor = "saddlebrown"; 
+                                                                 item.onclick = function(){localStorage.color = "saddlebrown";
+                                                       location.href="index.html";}};
+                            if(item.innerHTML == "0129"){item.style.backgroundColor = "seashell"; 
+                                                                 item.onclick = function(){localStorage.color = "seashell";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0130"){item.style.backgroundColor = "sienna"; 
+                                                                 item.onclick = function(){localStorage.color = "sienna";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0131"){item.style.backgroundColor = "lightsalmon";
+                                                                 item.onclick = function(){localStorage.color = "lightsalmon"; 
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0132"){item.style.backgroundColor = "coral"; 
+                                                                 item.onclick = function(){localStorage.color = "coral";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0133"){item.style.backgroundColor = "orangered"; 
+                                                                 item.onclick = function(){localStorage.color = "orangered";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0134"){item.style.backgroundColor = "darksalmon"; 
+                                                                 item.onclick = function(){localStorage.color = "darksalmon";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0135"){item.style.backgroundColor = "tomato"; 
+                                                                 item.onclick = function(){localStorage.color = "tomato";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0136"){item.style.backgroundColor = "mistyrose";
+                                                                 item.onclick = function(){localStorage.color = "mistyrose"; 
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0137"){item.style.backgroundColor = "salmon"; 
+                                                                 item.onclick = function(){localStorage.color = "salmon";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0138"){item.style.backgroundColor = "snow"; 
+                                                                 item.onclick = function(){localStorage.color = "snow";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0139"){item.style.backgroundColor = "lightcoral"; 
+                                                                 item.onclick = function(){localStorage.color = "lightcoral";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0140"){item.style.backgroundColor = "rosybrown"; 
+                                                                 item.onclick = function(){localStorage.color = "rosybrown";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0141"){item.style.backgroundColor = "indianred"; 
+                                                                 item.onclick = function(){localStorage.color = "indianred";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0142"){item.style.backgroundColor = "red"; 
+                                                        item.onclick = function(){localStorage.color = "red";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0143"){item.style.backgroundColor = "brown"; 
+                                                                 item.onclick = function(){localStorage.color = "brown";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0144"){item.style.backgroundColor = "firebrick"; 
+                                                                 item.onclick = function(){localStorage.color = "firebrick";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0145"){item.style.backgroundColor = "darkred"; 
+                                                                 item.onclick = function(){localStorage.color = "darkred";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0146"){item.style.backgroundColor = "maroon"; 
+                                                        item.onclick = function(){localStorage.color = "maroon";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0147"){item.style.backgroundColor = "white"; 
+                                                        item.onclick = function(){localStorage.color = "white";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0148"){item.style.backgroundColor = "whitesmoke"; 
+                                                                 item.onclick = function(){localStorage.color = "whitesmoke";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0149"){item.style.backgroundColor = "gainsboro"; 
+                                                                 item.onclick = function(){localStorage.color = "gainsboro";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0150"){item.style.backgroundColor = "lightgrey"; 
+                                                                 item.onclick = function(){localStorage.color = "lightgrey";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0151"){item.style.backgroundColor = "silver"; 
+                                                        item.onclick = function(){localStorage.color = "silver";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0152"){item.style.backgroundColor = "darkgrey"; 
+                                                                 item.onclick = function(){localStorage.color = "darkgrey";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0153"){item.style.backgroundColor = "grey"; 
+                                                        item.onclick = function(){localStorage.color = "grey";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0154"){item.style.backgroundColor = "dimgrey"; 
+                                                                 item.onclick = function(){localStorage.color = "dimgrey";
+                                                        location.href="index.html";}};
+                            if(item.innerHTML == "0155"){item.style.backgroundColor = "black"; 
+                                                        item.onclick = function(){localStorage.color = "black";
+                                                        location.href="index.html";}};
+                            }
+                        }
+                    function searchByRegExp(keyWord, list){
+                        var len = list.length;
+                        var arr = [];
+                        var reg = new RegExp(keyWord);
+                        for(var i=0;i<len;i++) {if(list[i].match(reg)) {arr.push(list[i]);} }
+                        return arr;
+                        }                      
+                </script>
+                <div class="panel panel-default" style="margin-top:17px; ">
+                    <div class="panel-heading" style="background:maroon" id="btn1"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn1").onclick = function () {            
+                            localStorage.color = document.getElementById("btn1").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0001</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">MAROON</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:red"  id="btn2"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn2").onclick = function () {            
+                            localStorage.color = document.getElementById("btn2").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0002</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">RED</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:olive"  id="btn3"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn3").onclick = function () {            
+                            localStorage.color = document.getElementById("btn3").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0003</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">OLIVE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:yellow"  id="btn4"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn4").onclick = function () {            
+                            localStorage.color = document.getElementById("btn4").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0004</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">YELLOW</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:green"  id="btn5"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn5").onclick = function () {            
+                            localStorage.color = document.getElementById("btn5").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0005</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">GREEN</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:lime"  id="btn6"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn6").onclick = function () {            
+                            localStorage.color = document.getElementById("btn6").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0006</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">LIME</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:teal"  id="btn7"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn7").onclick = function () {            
+                            localStorage.color = document.getElementById("btn7").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0007</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">TEAL</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:aqua"  id="btn8"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn8").onclick = function () {            
+                            localStorage.color = document.getElementById("btn8").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0008</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">AQUA</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:navy"  id="btn9"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn9").onclick = function () {            
+                            localStorage.color = document.getElementById("btn9").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0009</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">NAVY</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:blue"  id="btn10"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn10").onclick = function () {            
+                            localStorage.color = document.getElementById("btn10").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0010</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">BLUE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:purple"  id="btn11"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn11").onclick = function () {            
+                            localStorage.color = document.getElementById("btn11").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0011</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">PURPLE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:fuchsia"  id="btn12"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn12").onclick = function () {            
+                            localStorage.color = document.getElementById("btn12").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0012</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">FUCHSIA</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:white"  id="btn13"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn13").onclick = function () {            
+                            localStorage.color = document.getElementById("btn13").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0013</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">WHITE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:silver" id="btn14"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn14").onclick = function () {            
+                            localStorage.color = document.getElementById("btn14").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0014</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">SILVER</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:grey"  id="btn15"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn15").onclick = function () {            
+                            localStorage.color = document.getElementById("btn15").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0015</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">GREY</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:black" id="btn16"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn16").onclick = function () {            
+                            localStorage.color = document.getElementById("btn16").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0016</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">BLACK</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:pink" id="btn17"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn17").onclick = function () {            
+                            localStorage.color = document.getElementById("btn17").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0017</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">PINK</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:crimson"  id="btn18"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn18").onclick = function () {            
+                            localStorage.color = document.getElementById("btn18").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0018</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">CRIMSON</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:lavenderblush"  id="btn19"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn19").onclick = function () {            
+                            localStorage.color = document.getElementById("btn19").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0019</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">LAVENDERBLUSH</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:PALEVIOLETRED"  id="btn20"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn20").onclick = function () {            
+                            localStorage.color = document.getElementById("btn20").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0020</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">PALEVIOLETRED</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:HOTPINK"  id="btn21"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn21").onclick = function () {            
+                            localStorage.color = document.getElementById("btn21").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0021</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">HOTPINK</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:DEEPPINK"  id="btn22"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn22").onclick = function () {            
+                            localStorage.color = document.getElementById("btn22").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0022</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">DEEPPINK</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:MEDIUMVIOLETRED"  id="btn23"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn23").onclick = function () {            
+                            localStorage.color = document.getElementById("btn23").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0023</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">MEDIUMVIOLETRED</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:ORCHID"  id="btn24"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn24").onclick = function () {            
+                            localStorage.color = document.getElementById("btn24").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0024</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">ORCHID</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:THISTLE"  id="btn25"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn25").onclick = function () {            
+                            localStorage.color = document.getElementById("btn25").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0025</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">THISTLE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:PLUM"  id="btn26"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn26").onclick = function () {            
+                            localStorage.color = document.getElementById("btn26").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0026</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">PLUM</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:VIOLET"  id="btn27"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn27").onclick = function () {            
+                            localStorage.color = document.getElementById("btn27").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0027</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">VIOLET</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:MAGENTA"  id="btn28"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn28").onclick = function () {            
+                            localStorage.color = document.getElementById("btn28").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0028</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">MAGENTA</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:FUCHSIA" id="btn29"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn29").onclick = function () {            
+                            localStorage.color = document.getElementById("btn29").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0029</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">FUCHSIA</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:DARKMAGENTA" id="btn30"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn30").onclick = function () {            
+                            localStorage.color = document.getElementById("btn30").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0030</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">DARKMAGENTA</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:PURPLE"  id="btn31"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn31").onclick = function () {            
+                            localStorage.color = document.getElementById("btn31").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0031</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">PURPLE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:MEDIUMORCHID" id="btn32"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn32").onclick = function () {            
+                            localStorage.color = document.getElementById("btn32").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0032</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">MEDIUMORCHID</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:DARKVIOLET" id="btn33"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn33").onclick = function () {            
+                            localStorage.color = document.getElementById("btn33").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0033</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">DARKVIOLET</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:darkorchid"  id="btn34"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn34").onclick = function () {            
+                            localStorage.color = document.getElementById("btn34").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0034</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">DARKORCHID</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:INDIGO"  id="btn35"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn35").onclick = function () {            
+                            localStorage.color = document.getElementById("btn35").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0035</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">INDIGO</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:BLUEVIOLET"  id="btn36"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn36").onclick = function () {            
+                            localStorage.color = document.getElementById("btn36").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0036</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">BLUEVIOLET</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:MEDIUMPURPLE"  id="btn37"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn37").onclick = function () {            
+                            localStorage.color = document.getElementById("btn37").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0037</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">MEDIUMPURPLE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:mediumslateblue"  id="btn38"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn38").onclick = function () {            
+                            localStorage.color = document.getElementById("btn38").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0038</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">MEDIUMSLATEBLUE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:SLATEBLUE"  id="btn39"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn39").onclick = function () {            
+                            localStorage.color = document.getElementById("btn39").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0039</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">SLATEBLUE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:DARKSLATEBLUE"  id="btn40"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn40").onclick = function () {            
+                            localStorage.color = document.getElementById("btn40").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0040</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">DARKSLATEBLUE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:LAVENDER"  id="btn41"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn41").onclick = function () {            
+                            localStorage.color = document.getElementById("btn41").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0041</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">LAVENDER</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:GHOSTWHITE"  id="btn42"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn42").onclick = function () {            
+                            localStorage.color = document.getElementById("btn42").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0042</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">GHOSTWHITE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:BLUE"  id="btn43"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn43").onclick = function () {            
+                            localStorage.color = document.getElementById("btn43").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0043</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">BLUE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:MEDIUMBLUE"  id="btn44"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn44").onclick = function () {            
+                            localStorage.color = document.getElementById("btn44").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0044</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">MEDIUMBLUE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:MIDNIGHTBLUE" id="btn45"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn45").onclick = function () {            
+                            localStorage.color = document.getElementById("btn45").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0045</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">MIDNIGHTBLUE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:DARKBLUE" id="btn46"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn46").onclick = function () {            
+                            localStorage.color = document.getElementById("btn46").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0046</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">DARKBLUE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:NAVY"  id="btn47"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn47").onclick = function () {            
+                            localStorage.color = document.getElementById("btn47").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0047</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">NAVY</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:ROYALBLUE" id="btn48"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn48").onclick = function () {            
+                            localStorage.color = document.getElementById("btn48").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0048</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">ROYALBLUE</small></p>
+                    </div>
+                </div><div class="panel panel-default">
+                    <div class="panel-heading" style="background:CORNFLOWERBLUE" id="btn49"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn49").onclick = function () {            
+                            localStorage.color = document.getElementById("btn49").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0049</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">CORNFLOWERBLUE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:LIGHTSTEELBLUE"  id="btn50"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn50").onclick = function () {            
+                            localStorage.color = document.getElementById("btn50").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0050</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">LIGHTSTEELBLUE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:LIGHTSLATEGRAY"  id="btn51"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn51").onclick = function () {            
+                            localStorage.color = document.getElementById("btn51").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0051</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">LIGHTSLATEGRAY</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:SLATEGRAY"  id="btn52"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn52").onclick = function () {            
+                            localStorage.color = document.getElementById("btn52").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0052</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">SLATEGRAY</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:DODGERBLUE"  id="btn53"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn53").onclick = function () {            
+                            localStorage.color = document.getElementById("btn53").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0053</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">DODGERBLUE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:ALICEBLUE"  id="btn54"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn54").onclick = function () {            
+                            localStorage.color = document.getElementById("btn54").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0054</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">ALICEBLUE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:STEELBLUE"  id="btn55"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn55").onclick = function () {            
+                            localStorage.color = document.getElementById("btn55").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0055</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">STEELBLUE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:LIGHTSKYBLUE"  id="btn56"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn56").onclick = function () {            
+                            localStorage.color = document.getElementById("btn56").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0056</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">LIGHTSKYBLUE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:SKYBLUE"  id="btn57"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn57").onclick = function () {            
+                            localStorage.color = document.getElementById("btn57").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0057</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">SKYBLUE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:DEEPSKYBLUE"  id="btn58"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn58").onclick = function () {            
+                            localStorage.color = document.getElementById("btn58").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0058</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">DEEPSKYBLUE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:LIGHTBLUE"  id="btn59"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn59").onclick = function () {            
+                            localStorage.color = document.getElementById("btn59").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0059</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">LIGHTBLUE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:POWDERBLUE"  id="btn60"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn60").onclick = function () {            
+                            localStorage.color = document.getElementById("btn60").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0060</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">POWDERBLUE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:CADETBLUE" id="btn61"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn61").onclick = function () {            
+                            localStorage.color = document.getElementById("btn61").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0061</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">CADETBLUE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:AZURE" id="btn62"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn62").onclick = function () {            
+                            localStorage.color = document.getElementById("btn62").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0062</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">AZURE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:LIGHTCYAN"  id="btn63"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn63").onclick = function () {            
+                            localStorage.color = document.getElementById("btn63").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0063</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">LIGHTCYAN</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:PALETURQUOISE" id="btn64"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn64").onclick = function () {            
+                            localStorage.color = document.getElementById("btn64").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0064</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">PALETURQUOISE</small></p>
+                    </div>
+                </div><div class="panel panel-default">
+                    <div class="panel-heading" style="background:CYAN" id="btn65"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn65").onclick = function () {            
+                            localStorage.color = document.getElementById("btn65").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0065</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">CYAN</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:AQUA"  id="btn66"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn66").onclick = function () {            
+                            localStorage.color = document.getElementById("btn66").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0066</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">AQUA</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:DARKTURQUOISE"  id="btn67"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn67").onclick = function () {            
+                            localStorage.color = document.getElementById("btn67").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0067</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">DARKTURQUOISE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:DARKSLATEGRAY"  id="btn68"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn68").onclick = function () {            
+                            localStorage.color = document.getElementById("btn68").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0068</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">DARKSLATEGRAY</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:DARKCYAN"  id="btn69"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn69").onclick = function () {            
+                            localStorage.color = document.getElementById("btn69").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0069</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">DARKCYAN</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:TEAL"  id="btn70"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn70").onclick = function () {            
+                            localStorage.color = document.getElementById("btn70").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0070</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">TEAL</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:MEDIUMTURQUOISE"  id="btn71"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn71").onclick = function () {            
+                            localStorage.color = document.getElementById("btn71").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0071</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">MEDIUMTURQUOISE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:LIGHTSEAGREEN"  id="btn72"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn72").onclick = function () {            
+                            localStorage.color = document.getElementById("btn72").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0072</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">LIGHTSEAGREEN</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:TURQUOISE"  id="btn73"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn73").onclick = function () {            
+                            localStorage.color = document.getElementById("btn73").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0073</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">TURQUOISE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:AQUAMARINE"  id="btn74"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn74").onclick = function () {            
+                            localStorage.color = document.getElementById("btn74").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0074</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">AQUAMARINE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:MEDIUMAQUAMARINE"  id="btn75"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn75").onclick = function () {            
+                            localStorage.color = document.getElementById("btn75").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0075</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">MEDIUMAQUAMARINE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:MEDIUMSPRINGGREEN"  id="btn76"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn76").onclick = function () {            
+                            localStorage.color = document.getElementById("btn76").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0076</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">MEDIUMSPRINGGREEN</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:MINTCREAM" id="btn77"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn77").onclick = function () {            
+                            localStorage.color = document.getElementById("btn77").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0077</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">MINTCREAM</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:SPRINGGREEN" id="btn78"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn78").onclick = function () {            
+                            localStorage.color = document.getElementById("btn78").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0078</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">SPRINGGREEN</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:MEDIUMSEAGREEN"  id="btn79"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn79").onclick = function () {            
+                            localStorage.color = document.getElementById("btn79").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0079</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">MEDIUMSEAGREEN</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:SEAGREEN" id="btn80"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn80").onclick = function () {            
+                            localStorage.color = document.getElementById("btn80").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0080</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">SEAGREEN</small></p>
+                    </div>
+                </div><div class="panel panel-default">
+                    <div class="panel-heading" style="background:HONEYDEW" id="btn81"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn81").onclick = function () {            
+                            localStorage.color = document.getElementById("btn81").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0081</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">HONEYDEW</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:LIGHTGREEN"  id="btn82"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn82").onclick = function () {            
+                            localStorage.color = document.getElementById("btn82").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0082</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">LIGHTGREEN</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:PALEGREEN"  id="btn83"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn83").onclick = function () {            
+                            localStorage.color = document.getElementById("btn83").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0083</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">PALEGREEN</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:DARKSEAGREEN"  id="btn84"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn84").onclick = function () {            
+                            localStorage.color = document.getElementById("btn84").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0084</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">DARKSEAGREEN</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:LIMEGREEN"  id="btn85"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn85").onclick = function () {            
+                            localStorage.color = document.getElementById("btn85").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0085</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">LIMEGREEN</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:LIME"  id="btn86"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn86").onclick = function () {            
+                            localStorage.color = document.getElementById("btn86").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0086</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">LIME</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:FORESTGREEN"  id="btn87"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn87").onclick = function () {            
+                            localStorage.color = document.getElementById("btn87").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0087</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">FORESTGREEN</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:GREEN"  id="btn88"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn88").onclick = function () {            
+                            localStorage.color = document.getElementById("btn88").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0088</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">GREEN</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:DARKGREEN"  id="btn89"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn89").onclick = function () {            
+                            localStorage.color = document.getElementById("btn89").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0089</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">DARKGREEN</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:CHARTREUSE"  id="btn90"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn90").onclick = function () {            
+                            localStorage.color = document.getElementById("btn90").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0090</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">CHARTREUSE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:LAWNGREEN"  id="btn91"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn91").onclick = function () {            
+                            localStorage.color = document.getElementById("btn91").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0091</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">LAWNGREEN</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:GREENYELLOW"  id="btn92"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn92").onclick = function () {            
+                            localStorage.color = document.getElementById("btn92").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0092</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">GREENYELLOW</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:DARKOLIVEGREEN" id="btn93"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn93").onclick = function () {            
+                            localStorage.color = document.getElementById("btn93").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0093</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">DARKOLIVEGREEN</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:YELLOWGREEN" id="btn94"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn94").onclick = function () {            
+                            localStorage.color = document.getElementById("btn94").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0094</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">YELLOWGREEN</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:OLIVEDRAB"  id="btn95"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn95").onclick = function () {            
+                            localStorage.color = document.getElementById("btn95").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0095</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">OLIVEGRAB</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:BEIGE" id="btn96"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn96").onclick = function () {            
+                            localStorage.color = document.getElementById("btn96").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0096</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">BEIGE</small></p>
+                    </div>
+                </div><div class="panel panel-default">
+                    <div class="panel-heading" style="background:LIGHTGOLDENRODYELLOW" id="btn97"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn97").onclick = function () {            
+                            localStorage.color = document.getElementById("btn97").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0097</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">LIGHTGOLDENRODYELLOW</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:IVORY"  id="btn98"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn98").onclick = function () {            
+                            localStorage.color = document.getElementById("btn98").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0098</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">IVORY</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:LIGHTYELLOW"  id="btn99"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn99").onclick = function () {            
+                            localStorage.color = document.getElementById("btn99").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0099</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">LIGHTYELLOW</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:YELLOW"  id="btn100"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn100").onclick = function () {            
+                            localStorage.color = document.getElementById("btn100").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0100</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">YELLOW</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:OLIVE"  id="btn101"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn101").onclick = function () {            
+                            localStorage.color = document.getElementById("btn101").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0101</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">OLIVE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:DARKKHAKI"  id="btn102"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn102").onclick = function () {            
+                            localStorage.color = document.getElementById("btn102").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0102</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">DARKKHAKI</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:LEMONCHIFFON"  id="btn103"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn103").onclick = function () {            
+                            localStorage.color = document.getElementById("btn103").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0103</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">LEMONCHIFFON</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:PALEGOLDENROD"  id="btn104"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn104").onclick = function () {            
+                            localStorage.color = document.getElementById("btn104").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0104</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">PALEGOLDENROD</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:KHAKI"  id="btn105"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn105").onclick = function () {            
+                            localStorage.color = document.getElementById("btn105").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0105</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">KHAKI</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:GOLD"  id="btn106"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn106").onclick = function () {            
+                            localStorage.color = document.getElementById("btn106").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0106</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">GOLD</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:CORNSILK"  id="btn107"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn107").onclick = function () {            
+                            localStorage.color = document.getElementById("btn107").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0107</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">CORNSILK</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:GOLDENROD"  id="btn108"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn108").onclick = function () {            
+                            localStorage.color = document.getElementById("btn108").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0108</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">GOLDENROD</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:DARKGOLDENROD" id="btn109"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn109").onclick = function () {            
+                            localStorage.color = document.getElementById("btn109").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0109</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">DARKGOLDENROD</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:FLORALWHITE" id="btn110"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn110").onclick = function () {            
+                            localStorage.color = document.getElementById("btn110").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0110</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">FLORALWHITE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:OLDLACE"  id="btn111"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn111").onclick = function () {            
+                            localStorage.color = document.getElementById("btn111").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0111</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">OLDLACE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:WHEAT" id="btn112"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn112").onclick = function () {            
+                            localStorage.color = document.getElementById("btn112").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0112</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">WHEAT</small></p>
+                    </div>
+                </div><div class="panel panel-default">
+                    <div class="panel-heading" style="background:MOCCASIN" id="btn113"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn113").onclick = function () {            
+                            localStorage.color = document.getElementById("btn113").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0113</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">MOCCASIN</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:ORANGE"  id="btn114"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn114").onclick = function () {            
+                            localStorage.color = document.getElementById("btn114").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0114</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">ORANGE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:PAPAYAWHIP"  id="btn115"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn115").onclick = function () {            
+                            localStorage.color = document.getElementById("btn115").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0115</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">PAPAYAWHIP</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:BLANCHEDALMOND"  id="btn116"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn116").onclick = function () {            
+                            localStorage.color = document.getElementById("btn116").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0116</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">BLANCHEDALMOND</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:NAVAJOWHITE"  id="btn117"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn117").onclick = function () {            
+                            localStorage.color = document.getElementById("btn117").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0117</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">NAVAJOWHITE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:ANTIQUEWHITE"  id="btn118"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn118").onclick = function () {            
+                            localStorage.color = document.getElementById("btn118").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0118</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">ANTIQUEWHITE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:TAN"  id="btn119"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn119").onclick = function () {            
+                            localStorage.color = document.getElementById("btn119").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0119</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">TAN</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:BURLYWOOD"  id="btn120"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn120").onclick = function () {            
+                            localStorage.color = document.getElementById("btn120").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0120</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">BURLYWOOD</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:BISQUE"  id="btn121"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn121").onclick = function () {            
+                            localStorage.color = document.getElementById("btn121").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0121</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">BISQUE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:DARKORANGE"  id="btn122"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn122").onclick = function () {            
+                            localStorage.color = document.getElementById("btn122").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0122</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">DARKORANGE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:LINEN"  id="btn123"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn123").onclick = function () {            
+                            localStorage.color = document.getElementById("btn123").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0123</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">LINEN</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:PERU"  id="btn124"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn124").onclick = function () {            
+                            localStorage.color = document.getElementById("btn124").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0124</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">PERU</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:PEACHPUFF" id="btn125"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn125").onclick = function () {            
+                            localStorage.color = document.getElementById("btn125").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0125</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">PEACHPUFF</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:sandybrown" id="btn126"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn126").onclick = function () {            
+                            localStorage.color = document.getElementById("btn126").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0126</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">SADDLEBROWN</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:chocolate" id="btn127"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn127").onclick = function () {            
+                            localStorage.color = document.getElementById("btn127").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0127</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">CHOCOLATE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:saddlebrown" id="btn128"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn128").onclick = function () {            
+                            localStorage.color = document.getElementById("btn128").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0128</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">SADDLEBROWN</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:seashell" id="btn129"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn129").onclick = function () {            
+                            localStorage.color = document.getElementById("btn129").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0129</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">SEASHELL</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:sienna"  id="btn130"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn130").onclick = function () {            
+                            localStorage.color = document.getElementById("btn130").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0130</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">SIENNA</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:lightsalmon" id="btn131"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn131").onclick = function () {            
+                            localStorage.color = document.getElementById("btn131").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0131</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">LIGHTSALMON</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:coral" id="btn132"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn132").onclick = function () {            
+                            localStorage.color = document.getElementById("btn132").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0132</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">CORAL</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:orangered"  id="btn133"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn133").onclick = function () {            
+                            localStorage.color = document.getElementById("btn133").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0133</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">ORANGERED</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:darksalmon"  id="btn134"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn134").onclick = function () {            
+                            localStorage.color = document.getElementById("btn134").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0134</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">DARKSALMON</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:tomato"  id="btn135"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn135").onclick = function () {            
+                            localStorage.color = document.getElementById("btn135").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0135</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">TOMATO</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:mistyrose"  id="btn136"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn136").onclick = function () {            
+                            localStorage.color = document.getElementById("btn136").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0136</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">MISTYROSE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:salmon"  id="btn137"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn137").onclick = function () {            
+                            localStorage.color = document.getElementById("btn137").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0137</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">SALMON</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:snow"  id="btn138"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn138").onclick = function () {            
+                            localStorage.color = document.getElementById("btn138").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0138</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">SNOW</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:lightcoral"  id="btn139"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn139").onclick = function () {            
+                            localStorage.color = document.getElementById("btn139").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0139</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">LIGHTCORAL</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:rosybrown"  id="btn140"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn140").onclick = function () {            
+                            localStorage.color = document.getElementById("btn140").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0140</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">ROSYBROWN</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:indianred"  id="btn141"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn141").onclick = function () {            
+                            localStorage.color = document.getElementById("btn141").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0141</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">INDIANRED</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:red"  id="btn142"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn142").onclick = function () {            
+                            localStorage.color = document.getElementById("btn142").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0142</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">RED</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:brown"  id="btn143"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn143").onclick = function () {            
+                            localStorage.color = document.getElementById("btn143").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0143</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">BROWN</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:firebrick" id="btn144"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn144").onclick = function () {            
+                            localStorage.color = document.getElementById("btn144").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0144</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">FIREBRICK</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:darkred" id="btn145"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn145").onclick = function () {            
+                            localStorage.color = document.getElementById("btn145").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0145</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">DARKRED</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:maroon"  id="btn146"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn146").onclick = function () {            
+                            localStorage.color = document.getElementById("btn146").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0146</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">MAROON</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:white" id="btn147"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn147").onclick = function () {            
+                            localStorage.color = document.getElementById("btn147").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0147</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">WHITE</small></p>
+                    </div>
+                </div><div class="panel panel-default">
+                    <div class="panel-heading" style="background:whitesmoke" id="btn148"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn148").onclick = function () {            
+                            localStorage.color = document.getElementById("btn148").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0148</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">WHITESMOKE</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:gainsboro"  id="btn149"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn149").onclick = function () {            
+                            localStorage.color = document.getElementById("btn149").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0149</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">GAINSBORO</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:lightgrey"  id="btn150"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn150").onclick = function () {            
+                            localStorage.color = document.getElementById("btn150").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0150</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">LIGHTGREY</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:silver"  id="btn151"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn151").onclick = function () {            
+                            localStorage.color = document.getElementById("btn151").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0151</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">SILVER</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:darkgrey"  id="btn152"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn152").onclick = function () {            
+                            localStorage.color = document.getElementById("btn152").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0152</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">DARKGREY</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:grey"  id="btn153"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn153").onclick = function () {            
+                            localStorage.color = document.getElementById("btn153").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0153</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">GREY</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:dimgrey"  id="btn154"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn154").onclick = function () {            
+                            localStorage.color = document.getElementById("btn154").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0154</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">DIMGREY</small></p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:black"  id="btn155"></div>
+                    <script type="text/javascript">
+                        document.getElementById("btn155").onclick = function () {            
+                            localStorage.color = document.getElementById("btn155").style.background;
+                            location.href="index.html"}
+                    </script>
+                    <div class="panel-body text-left">
+                        <p class="panel-body_Color_Category" class="colorname">0155</p>
+                        <p class="panel-body_small"><small class="colorcode" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">BLACK</small></p>
+                    </div>
+                </div><br/>
+                <div class="weui-footer">
+                    <p style="font-size:xx-small; color: black; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Designed by Valerii &copy;</p>
+                </div>
+</body>
+</html>
